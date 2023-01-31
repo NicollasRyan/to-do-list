@@ -7,11 +7,11 @@ export const Header = styled.header`
 
   background-color: #005bb7;
   padding: 15px 20px 100px 20px;
-  font-family: "Poppins", sans-serif;
 `;
 
 export const Title = styled.h1`
   color: white;
+  font-family: "Poppins", sans-serif;
 `;
 
 export const ButtonHeader = styled.button`
