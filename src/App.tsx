@@ -1,8 +1,31 @@
+import { Container } from "@mui/material";
+import { useState } from "react";
+import { AddTasks } from "./components/Modal";
+
+import { BoxList, ButtonHeader, Header, Title } from "./styles/app";
+
 function App() {
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
-    <div className="App">
-      <h1>Hello World</h1>
-    </div>
+    <>
+      <Header>
+        <Title>To-do List</Title>
+
+        <ButtonHeader onClick={handleOpen}>Adicionar Tarefa</ButtonHeader>
+        <AddTasks open={open} onClose={handleClose} />
+      </Header>
+      <Container>
+        <BoxList></BoxList>
+      </Container>
+    </>
   );
 }
 
