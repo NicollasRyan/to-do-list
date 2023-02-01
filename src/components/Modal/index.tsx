@@ -8,6 +8,7 @@ import {
   TextField,
   Stack,
 } from "@mui/material";
+import { FormEvent, useState } from "react";
 
 import { ButtonModal, ContentModal } from "./styled";
 
@@ -17,19 +18,41 @@ interface AddTasksProps {
 }
 
 export function AddTasks({ open, onClose }: AddTasksProps) {
+  const [tasks, setTasks] = useState("");
+  const [description, setDescription] = useState("");
+
+  function handleCreateNewTasks(event: FormEvent) {
+    event.preventDefault();
+    console.log({ tasks, description });
+  }
+
   return (
     <Dialog open={open} onClose={onClose} fullWidth maxWidth="sm">
       <DialogTitle>Adicionar Tarefa</DialogTitle>
-      <ContentModal>
-        <Stack spacing={2}>
-          <TextField variant="outlined" label="Qual é sua tarefa?" />
-          <TextField variant="outlined" label="descrição" />
-        </Stack>
-      </ContentModal>
-      <DialogActions>
-        <ButtonModal onClick={onClose}>Cancelar</ButtonModal>
-        <ButtonModal onClick={onClose}>Adicionar</ButtonModal>
-      </DialogActions>
+      <form onSubmit={handleCreateNewTasks}>
+        <ContentModal>
+          <Stack spacing={2}>
+            <TextField
+              variant="outlined"
+              label="Qual é sua tarefa?"
+              value={tasks}
+              onChange={(event) => setTasks(event.target.value)}
+            />
+            <TextField
+              variant="outlined"
+              label="descrição"
+              value={description}
+              onChange={(event) => setDescription(event.target.value)}
+            />
+          </Stack>
+        </ContentModal>
+        <DialogActions>
+          <ButtonModal onClick={onClose}>Cancelar</ButtonModal>
+          <ButtonModal type="submit" onClick={onClose}>
+            Adicionar
+          </ButtonModal>
+        </DialogActions>
+      </form>
     </Dialog>
   );
 }
