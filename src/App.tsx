@@ -1,6 +1,7 @@
-import { Container } from "@mui/material";
+import { Container, Stack } from "@mui/material";
 import { useState } from "react";
 import { AddTasks } from "./components/Modal";
+import { Tasks } from "./components/Tasks";
 
 import { BoxList, ButtonHeader, Header, Title } from "./styles/app";
 
@@ -23,7 +24,11 @@ function App() {
         <AddTasks open={open} onClose={handleClose} />
       </Header>
       <Container>
-        <BoxList></BoxList>
+        <BoxList>
+          <Stack spacing={2}>
+            <Tasks />
+          </Stack>
+        </BoxList>
       </Container>
     </>
   );
