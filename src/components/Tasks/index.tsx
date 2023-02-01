@@ -1,7 +1,11 @@
 import { Card, CardActions, CardContent } from "@mui/material";
+import { useEffect } from "react";
 import { ButtonCard, Description, TitleCard } from "./styled";
 
 export function Tasks() {
+  useEffect(() => {
+    fetch("http://localhost:3000/api/tasks");
+  }, []);
   return (
     <>
       <Card>

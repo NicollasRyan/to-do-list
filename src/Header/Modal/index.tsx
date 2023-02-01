@@ -23,7 +23,7 @@ export function AddTasks({ open, onClose }: AddTasksProps) {
 
   function handleCreateNewTasks(event: FormEvent) {
     event.preventDefault();
-    console.log({ tasks, description });
+    const data = { tasks, description };
   }
 
   return (
