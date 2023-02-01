@@ -4,7 +4,9 @@ import { ButtonCard, Description, TitleCard } from "./styled";
 
 export function Tasks() {
   useEffect(() => {
-    fetch("http://localhost:3000/api/tasks");
+    fetch("http://localhost:3000/api/tasks")
+      .then((response) => response.json())
+      .then((data) => console.log(data));
   }, []);
   return (
     <>

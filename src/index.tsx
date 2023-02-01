@@ -3,6 +3,22 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { GlobalStyle } from "./styles/global";
+import { createServer } from "miragejs";
+
+createServer({
+  routes() {
+    this.namespace = "api";
+
+    this.get("/tasks", () => {
+      return [
+        {
+          tasks: "name",
+          description: "name",
+        },
+      ];
+    });
+  },
+});
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
