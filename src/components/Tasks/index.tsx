@@ -1,12 +1,11 @@
 import { Card, CardActions, CardContent } from "@mui/material";
 import { useEffect } from "react";
+import { api } from "../services/api";
 import { ButtonCard, Description, TitleCard } from "./styled";
 
 export function Tasks() {
   useEffect(() => {
-    fetch("http://localhost:3000/api/tasks")
-      .then((response) => response.json())
-      .then((data) => console.log(data));
+    api.get("tasks").then((data) => console.log(data));
   }, []);
   return (
     <>
