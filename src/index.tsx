@@ -10,6 +10,23 @@ createServer({
     tasks: Model,
   },
 
+  seeds(server) {
+    server.db.loadData({
+      tasks: [
+        {
+          id: 1,
+          tasks: "compras",
+          description: "muitas compras4",
+        },
+        {
+          id: 2,
+          tasks: "compras 2",
+          description: "muitas compras 69",
+        },
+      ],
+    });
+  },
+
   routes() {
     this.namespace = "api";
 

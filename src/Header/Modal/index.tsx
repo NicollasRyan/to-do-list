@@ -25,7 +25,7 @@ export function AddTasks({ open, onClose }: AddTasksProps) {
   function handleCreateNewTasks(event: FormEvent) {
     event.preventDefault();
     const data = { tasks, description };
-    api.post("/tasks", data);
+    api.post("tasks", data);
   }
 
   return (

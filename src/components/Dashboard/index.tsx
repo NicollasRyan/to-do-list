@@ -1,5 +1,5 @@
 import { Container, Stack } from "@mui/material";
-import { Tasks } from "../Tasks";
+import { Task } from "../Tasks";
 import { BoxList } from "./styled";
 
 export function Dashboard() {
@@ -7,7 +7,7 @@ export function Dashboard() {
     <Container>
       <BoxList>
         <Stack spacing={2}>
-          <Tasks />
+          <Task />
         </Stack>
       </BoxList>
     </Container>
