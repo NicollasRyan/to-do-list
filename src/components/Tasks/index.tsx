@@ -5,7 +5,7 @@ import { ButtonCard, Description, TitleCard } from "./styled";
 
 export function Tasks() {
   useEffect(() => {
-    api.get("tasks").then((data) => console.log(data));
+    api.get("tasks").then((response) => console.log(response.data));
   }, []);
   return (
     <>

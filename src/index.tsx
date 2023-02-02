@@ -3,19 +3,24 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { GlobalStyle } from "./styles/global";
-import { createServer } from "miragejs";
+import { createServer, Model } from "miragejs";
 
 createServer({
+  models: {
+    tasks: Model,
+  },
+
   routes() {
     this.namespace = "api";
 
     this.get("/tasks", () => {
-      return [
-        {
-          tasks: "name",
-          description: "name",
-        },
-      ];
+      return this.schema.all("tasks");
+    });
+
+    this.post("/tasks", (schema, request) => {
+      const data = JSON.parse(request.requestBody);
+
+      return schema.create("tasks", data);
     });
   },
 });

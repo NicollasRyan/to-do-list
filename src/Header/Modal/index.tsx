@@ -9,6 +9,7 @@ import {
   Stack,
 } from "@mui/material";
 import { FormEvent, useState } from "react";
+import { api } from "../../components/services/api";
 
 import { ButtonModal, ContentModal } from "./styled";
 
@@ -24,6 +25,7 @@ export function AddTasks({ open, onClose }: AddTasksProps) {
   function handleCreateNewTasks(event: FormEvent) {
     event.preventDefault();
     const data = { tasks, description };
+    api.post("/tasks", data);
   }
 
   return (
