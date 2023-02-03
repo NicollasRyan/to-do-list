@@ -1,3 +1,4 @@
+import { FormEvent, useState, useContext } from "react";
 import {
   Dialog,
   DialogActions,
@@ -5,8 +6,9 @@ import {
   TextField,
   Stack,
 } from "@mui/material";
-import { FormEvent, useState, useContext } from "react";
+
 import { api } from "../../components/services/api";
+import { TasksContext } from "../../TasksContext";
 
 import { ButtonModal, ContentModal } from "./styled";
 
@@ -16,13 +18,18 @@ interface AddTasksProps {
 }
 
 export function AddTasks({ open, onClose }: AddTasksProps) {
+  const { createTasks } = useContext(TasksContext);
+
   const [tasks, setTasks] = useState("");
   const [description, setDescription] = useState("");
 
   function handleCreateNewTasks(event: FormEvent) {
     event.preventDefault();
-    const data = { tasks, description };
-    api.post("tasks", data);
+
+    createTasks({
+      tasks,
+      description,
+    });
   }
 
   return (

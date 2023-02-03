@@ -5,7 +5,7 @@ import { ButtonCard, Description, TitleCard } from "./styled";
 import { TasksContext } from "../../TasksContext";
 
 export function Task() {
-  const tasks = useContext(TasksContext);
+  const { tasks } = useContext(TasksContext);
 
   return (
     <>

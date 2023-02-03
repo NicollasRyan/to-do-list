@@ -7,11 +7,23 @@ interface TasksProps {
   description: string;
 }
 
+interface TasksInput {
+  tasks: string;
+  description: string;
+}
+
+interface TasksContextData {
+  tasks: TasksProps[];
+  createTasks: (tasks: TasksInput) => void;
+}
+
 interface TasksProviderProps {
   children: ReactNode;
 }
 
-export const TasksContext = createContext<TasksProps[]>([]);
+export const TasksContext = createContext<TasksContextData>(
+  {} as TasksContextData
+);
 
 export function TasksProvider({ children }: TasksProviderProps) {
   const [tasks, setTasks] = useState<TasksProps[]>([]);
@@ -20,7 +32,13 @@ export function TasksProvider({ children }: TasksProviderProps) {
     api.get("tasks").then((response) => setTasks(response.data.tasks));
   }, []);
 
+  function createTasks(tasks: TasksInput) {
+    api.post("tasks", tasks);
+  }
+
   return (
-    <TasksContext.Provider value={tasks}>{children}</TasksContext.Provider>
+    <TasksContext.Provider value={{ tasks, createTasks }}>
+      {children}
+    </TasksContext.Provider>
   );
 }
