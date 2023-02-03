@@ -1,24 +1,11 @@
-import { useEffect, useState, useContext } from "react";
+import { useContext } from "react";
 import { Card, CardActions, CardContent } from "@mui/material";
-
-import { api } from "../services/api";
 
 import { ButtonCard, Description, TitleCard } from "./styled";
 import { TasksContext } from "../../TasksContext";
 
-interface TasksProps {
-  id: number;
-  tasks: string;
-  description: string;
-}
-
 export function Task() {
-  const data = useContext(TasksContext);
-  const [tasks, setTasks] = useState<TasksProps[]>([]);
-
-  useEffect(() => {
-    api.get("tasks").then((response) => setTasks(response.data.tasks));
-  }, []);
+  const tasks = useContext(TasksContext);
 
   return (
     <>

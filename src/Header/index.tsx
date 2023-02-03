@@ -4,7 +4,9 @@ import { AddTasks } from "./Modal";
 import { HeaderPage, Title, ButtonHeader } from "./styled";
 
 export function Header() {
-  const data = useContext(TasksContext);
+  const tasks = useContext(TasksContext);
+
+  console.log(tasks);
 
   const [open, setOpen] = useState(false);
 
