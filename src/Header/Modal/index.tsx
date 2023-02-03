@@ -1,14 +1,11 @@
 import {
   Dialog,
   DialogActions,
-  DialogContent,
-  DialogContentText,
   DialogTitle,
-  Box,
   TextField,
   Stack,
 } from "@mui/material";
-import { FormEvent, useState } from "react";
+import { FormEvent, useState, useContext } from "react";
 import { api } from "../../components/services/api";
 
 import { ButtonModal, ContentModal } from "./styled";
@@ -37,12 +34,14 @@ export function AddTasks({ open, onClose }: AddTasksProps) {
             <TextField
               variant="outlined"
               label="Qual é sua tarefa?"
+              autoComplete="off"
               value={tasks}
               onChange={(event) => setTasks(event.target.value)}
             />
             <TextField
               variant="outlined"
               label="descrição"
+              autoComplete="off"
               value={description}
               onChange={(event) => setDescription(event.target.value)}
             />

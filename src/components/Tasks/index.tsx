@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Card, CardActions, CardContent } from "@mui/material";
 
 import { api } from "../services/api";
 
 import { ButtonCard, Description, TitleCard } from "./styled";
+import { TasksContext } from "../../TasksContext";
 
 interface TasksProps {
   id: number;
@@ -12,6 +13,7 @@ interface TasksProps {
 }
 
 export function Task() {
+  const data = useContext(TasksContext);
   const [tasks, setTasks] = useState<TasksProps[]>([]);
 
   useEffect(() => {
