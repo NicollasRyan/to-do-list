@@ -13,8 +13,8 @@ interface TasksInput {
 }
 
 interface TasksContextData {
-  tasks: TasksProps[];
-  createTasks: (tasks: TasksInput) => Promise<void>;
+  taskss: TasksProps[];
+  createTasks: (taskss: TasksInput) => Promise<void>;
 }
 
 interface TasksProviderProps {
@@ -26,7 +26,7 @@ export const TasksContext = createContext<TasksContextData>(
 );
 
 export function TasksProvider({ children }: TasksProviderProps) {
-  const [tasks, setTasks] = useState<TasksProps[]>([]);
+  const [taskss, setTasks] = useState<TasksProps[]>([]);
 
   useEffect(() => {
     api.get("tasks").then((response) => setTasks(response.data.tasks));
@@ -36,11 +36,11 @@ export function TasksProvider({ children }: TasksProviderProps) {
     const response = await api.post("tasks", tasksInput);
     const { tasks } = response.data;
 
-    setTasks([...tasks, tasks]);
+    setTasks([...taskss, tasks]);
   }
 
   return (
-    <TasksContext.Provider value={{ tasks, createTasks }}>
+    <TasksContext.Provider value={{ taskss, createTasks }}>
       {children}
     </TasksContext.Provider>
   );
