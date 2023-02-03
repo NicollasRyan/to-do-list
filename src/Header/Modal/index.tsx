@@ -23,13 +23,17 @@ export function AddTasks({ open, onClose }: AddTasksProps) {
   const [tasks, setTasks] = useState("");
   const [description, setDescription] = useState("");
 
-  function handleCreateNewTasks(event: FormEvent) {
+  async function handleCreateNewTasks(event: FormEvent) {
     event.preventDefault();
 
-    createTasks({
+    await createTasks({
       tasks,
       description,
     });
+
+    setTasks("");
+    setDescription("");
+    onClose();
   }
 
   return (
@@ -56,9 +60,7 @@ export function AddTasks({ open, onClose }: AddTasksProps) {
         </ContentModal>
         <DialogActions>
           <ButtonModal onClick={onClose}>Cancelar</ButtonModal>
-          <ButtonModal type="submit" onClick={onClose}>
-            Adicionar
-          </ButtonModal>
+          <ButtonModal type="submit">Adicionar</ButtonModal>
         </DialogActions>
       </form>
     </Dialog>

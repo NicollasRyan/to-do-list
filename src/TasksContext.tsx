@@ -14,7 +14,7 @@ interface TasksInput {
 
 interface TasksContextData {
   tasks: TasksProps[];
-  createTasks: (tasks: TasksInput) => void;
+  createTasks: (tasks: TasksInput) => Promise<void>;
 }
 
 interface TasksProviderProps {
@@ -32,8 +32,11 @@ export function TasksProvider({ children }: TasksProviderProps) {
     api.get("tasks").then((response) => setTasks(response.data.tasks));
   }, []);
 
-  function createTasks(tasks: TasksInput) {
-    api.post("tasks", tasks);
+  async function createTasks(tasksInput: TasksInput) {
+    const response = await api.post("tasks", tasksInput);
+    const { tasks } = response.data;
+
+    setTasks([...tasks, tasks]);
   }
 
   return (
