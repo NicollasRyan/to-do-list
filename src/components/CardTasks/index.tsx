@@ -1,12 +1,10 @@
-import { useContext, useEffect, useState } from "react";
-import { Card, CardActions, CardContent } from "@mui/material";
+import { useContext } from "react";
+import { CardContent } from "@mui/material";
 
-import { api } from "../services/api";
-
-import { ButtonCard, ContainerCard, Description, TitleCard } from "./styled";
+import { ContainerCard, Description, TitleCard } from "./styled";
 import { TasksContext } from "../../TasksContext";
 
-export function Task() {
+export function CardTask() {
   const { taskss } = useContext(TasksContext);
 
   return (
