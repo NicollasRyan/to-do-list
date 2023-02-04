@@ -3,7 +3,7 @@ import { Card, CardActions, CardContent } from "@mui/material";
 
 import { api } from "../services/api";
 
-import { ButtonCard, Description, TitleCard } from "./styled";
+import { ButtonCard, ContainerCard, Description, TitleCard } from "./styled";
 import { TasksContext } from "../../TasksContext";
 
 export function Task() {
@@ -13,15 +13,15 @@ export function Task() {
     <>
       {taskss.map((task) => {
         return (
-          <Card key={task.id}>
+          <ContainerCard key={task.id}>
             <CardContent>
               <TitleCard>{task.tasks}</TitleCard>
               <Description>{task.description}</Description>
             </CardContent>
-            <CardActions>
+            {/* <CardActions>
               <ButtonCard>Ver mais</ButtonCard>
-            </CardActions>
-          </Card>
+            </CardActions> */}
+          </ContainerCard>
         );
       })}
     </>
