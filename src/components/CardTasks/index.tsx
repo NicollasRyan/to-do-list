@@ -1,7 +1,8 @@
 import { useContext } from "react";
-import { CardContent } from "@mui/material";
+import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-import { ContainerCard, Description, TitleCard } from "./styled";
+import { Description, TitleCard } from "./styled";
 import { TasksContext } from "../../TasksContext";
 
 export function CardTask() {
@@ -11,15 +12,14 @@ export function CardTask() {
     <>
       {taskss.map((task) => {
         return (
-          <ContainerCard key={task.id}>
-            <CardContent>
+          <Accordion key={task.id}>
+            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
               <TitleCard>{task.tasks}</TitleCard>
+            </AccordionSummary>
+            <AccordionDetails>
               <Description>{task.description}</Description>
-            </CardContent>
-            {/* <CardActions>
-              <ButtonCard>Ver mais</ButtonCard>
-            </CardActions> */}
-          </ContainerCard>
+            </AccordionDetails>
+          </Accordion>
         );
       })}
     </>
