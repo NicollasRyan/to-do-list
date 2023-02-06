@@ -10,6 +10,7 @@ import {
   TitleCard,
 } from "./styled";
 import { TasksContext } from "../../TasksContext";
+import { TextAlternative } from "../TextAlternative";
 
 export function CardTask() {
   const { taskss, setTasks } = useContext(TasksContext);
@@ -22,21 +23,23 @@ export function CardTask() {
 
   return (
     <>
-      {taskss.map((task) => {
-        return (
-          <Accordion key={task.id}>
-            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-              <TitleCard>{task.tasks}</TitleCard>
-            </AccordionSummary>
-            <ContainerAccordion>
-              <Description>{task.description}</Description>
-              <ButtonCard onClick={() => removeElement(task.id)}>
-                <DeleteIcon />
-              </ButtonCard>
-            </ContainerAccordion>
-          </Accordion>
-        );
-      })}
+      {taskss.length === 0 && <TextAlternative />}
+      {taskss.length > 0 &&
+        taskss.map((task) => {
+          return (
+            <Accordion key={task.id}>
+              <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                <TitleCard>{task.tasks}</TitleCard>
+              </AccordionSummary>
+              <ContainerAccordion>
+                <Description>{task.description}</Description>
+                <ButtonCard onClick={() => removeElement(task.id)}>
+                  <DeleteIcon />
+                </ButtonCard>
+              </ContainerAccordion>
+            </Accordion>
+          );
+        })}
     </>
   );
 }
