@@ -14,6 +14,7 @@ interface TasksInput {
 
 interface TasksContextData {
   taskss: TasksProps[];
+  setTasks: React.Dispatch<React.SetStateAction<TasksProps[]>>;
   createTasks: (taskss: TasksInput) => Promise<void>;
 }
 
@@ -40,7 +41,7 @@ export function TasksProvider({ children }: TasksProviderProps) {
   }
 
   return (
-    <TasksContext.Provider value={{ taskss, createTasks }}>
+    <TasksContext.Provider value={{ taskss, createTasks, setTasks }}>
       {children}
     </TasksContext.Provider>
   );

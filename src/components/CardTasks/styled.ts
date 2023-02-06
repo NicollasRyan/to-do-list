@@ -1,10 +1,9 @@
-import { Card } from "@mui/material";
+import { AccordionDetails } from "@mui/material";
 import styled from "styled-components";
 
-export const ContainerCard = styled.div`
-  background-color: #f2f2f2;
-  border-radius: 8px;
-  box-shadow: 0 0 5px;
+export const ContainerAccordion = styled(AccordionDetails)`
+  display: flex !important;
+  justify-content: space-between !important;
 `;
 
 export const TitleCard = styled.p`
@@ -15,4 +14,8 @@ export const Description = styled.p`
   font-size: 15px;
 `;
 
-export const ButtonCard = styled.button``;
+export const ButtonCard = styled.button`
+  border: none;
+  background: transparent;
+  color: gray;
+`;
