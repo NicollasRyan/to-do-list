@@ -6,7 +6,6 @@ function App() {
   return (
     <TasksProvider>
       <Header />
-
       <Dashboard />
     </TasksProvider>
   );

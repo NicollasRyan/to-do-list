@@ -7,7 +7,6 @@ import {
   Stack,
 } from "@mui/material";
 
-import { api } from "../../components/services/api";
 import { TasksContext } from "../../TasksContext";
 
 import { ButtonModal, ContentModal } from "./styled";
@@ -22,9 +21,17 @@ export function AddTasks({ open, onClose }: AddTasksProps) {
 
   const [tasks, setTasks] = useState("");
   const [description, setDescription] = useState("");
+  const [erro, setErro] = useState(false);
+
+  const msgerro = "Este campo é obrigadorio!";
 
   async function handleCreateNewTasks(event: FormEvent) {
     event.preventDefault();
+
+    if (description.length <= 0) {
+      setErro(true);
+      return;
+    }
 
     await createTasks({
       tasks,
@@ -46,20 +53,32 @@ export function AddTasks({ open, onClose }: AddTasksProps) {
               variant="outlined"
               label="Qual é sua tarefa?"
               autoComplete="off"
+              error={erro}
+              helperText={erro ? msgerro : ""}
               value={tasks}
-              onChange={(event) => setTasks(event.target.value)}
+              onChange={(event) => {
+                setErro(false);
+                setTasks(event.target.value);
+              }}
             />
             <TextField
               variant="outlined"
               label="descrição"
               autoComplete="off"
+              error={erro}
+              helperText={erro ? msgerro : ""}
               value={description}
-              onChange={(event) => setDescription(event.target.value)}
+              onChange={(event) => {
+                setErro(false);
+                setDescription(event.target.value);
+              }}
             />
           </Stack>
         </ContentModal>
         <DialogActions>
-          <ButtonModal onClick={onClose}>Cancelar</ButtonModal>
+          <ButtonModal type="reset" onClick={onClose}>
+            Cancelar
+          </ButtonModal>
           <ButtonModal type="submit">Adicionar</ButtonModal>
         </DialogActions>
       </form>
