@@ -1,10 +1,11 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
 import { api } from "./components/services/api";
 
-interface TasksProps {
+export interface TasksProps {
   id: number;
   tasks: string;
   description: string;
+  done: boolean;
 }
 
 interface TasksInput {

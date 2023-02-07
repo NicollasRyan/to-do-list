@@ -12,7 +12,20 @@ createServer({
 
   seeds(server) {
     server.db.loadData({
-      tasks: [],
+      tasks: [
+        {
+          id: 1,
+          tasks: "compras",
+          description: "muitas compras4",
+          done: false,
+        },
+        {
+          id: 2,
+          tasks: "compras 2",
+          description: "muitas compras 7",
+          done: true,
+        },
+      ],
     });
   },
 

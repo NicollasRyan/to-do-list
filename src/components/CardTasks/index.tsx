@@ -15,11 +15,16 @@ import {
   Description,
   TitleCard,
 } from "./styled";
-import { TasksContext } from "../../TasksContext";
+import { TasksContext, TasksProps } from "../../TasksContext";
 import { TextAlternative } from "../TextAlternative";
 
-export function CardTask() {
+type Props = {
+  task: TasksProps;
+};
+
+export function CardTask({ task }: Props) {
   const { taskss, setTasks } = useContext(TasksContext);
+  const [isChecked, SetIsChecked] = useState(task.done);
 
   const removeElement = (id: number) => {
     const newCard = taskss.filter((task) => task.id !== id);
@@ -28,27 +33,22 @@ export function CardTask() {
   };
 
   return (
-    <>
-      {taskss.length === 0 && <TextAlternative />}
-      {taskss.length > 0 &&
-        taskss.map((task) => {
-          return (
-            <Accordion key={task.id}>
-              <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                <TitleCard>{task.tasks}</TitleCard>
-              </AccordionSummary>
-              <ContainerAccordion>
-                <Description>{task.description}</Description>
-                <BoxButtons>
-                  <Checkbox />
-                  <ButtonCard onClick={() => removeElement(task.id)}>
-                    <DeleteIcon />
-                  </ButtonCard>
-                </BoxButtons>
-              </ContainerAccordion>
-            </Accordion>
-          );
-        })}
-    </>
+    <Accordion key={task.id}>
+      <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+        <TitleCard done={isChecked}>{task.tasks}</TitleCard>
+      </AccordionSummary>
+      <ContainerAccordion>
+        <Description done={isChecked}>{task.description}</Description>
+        <BoxButtons>
+          <Checkbox
+            checked={isChecked}
+            onChange={(e) => SetIsChecked(e.target.checked)}
+          />
+          <ButtonCard onClick={() => removeElement(task.id)}>
+            <DeleteIcon />
+          </ButtonCard>
+        </BoxButtons>
+      </ContainerAccordion>
+    </Accordion>
   );
 }
