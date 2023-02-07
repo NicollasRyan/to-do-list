@@ -1,9 +1,15 @@
-import { useContext } from "react";
-import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
+import { useContext, useState } from "react";
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  Checkbox,
+} from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import DeleteIcon from "@mui/icons-material/Delete";
 
 import {
+  BoxButtons,
   ButtonCard,
   ContainerAccordion,
   Description,
@@ -33,9 +39,12 @@ export function CardTask() {
               </AccordionSummary>
               <ContainerAccordion>
                 <Description>{task.description}</Description>
-                <ButtonCard onClick={() => removeElement(task.id)}>
-                  <DeleteIcon />
-                </ButtonCard>
+                <BoxButtons>
+                  <Checkbox />
+                  <ButtonCard onClick={() => removeElement(task.id)}>
+                    <DeleteIcon />
+                  </ButtonCard>
+                </BoxButtons>
               </ContainerAccordion>
             </Accordion>
           );

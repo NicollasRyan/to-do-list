@@ -18,4 +18,11 @@ export const ButtonCard = styled.button`
   border: none;
   background: transparent;
   color: gray;
+
+  margin-left: 10px;
+`;
+
+export const BoxButtons = styled.div`
+  display: flex;
+  align-items: center;
 `;
