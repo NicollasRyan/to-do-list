@@ -1,5 +1,5 @@
-import { AccordionDetails, Checkbox } from "@mui/material";
 import styled, { css } from "styled-components";
+import { AccordionDetails, Checkbox } from "@mui/material";
 
 interface BouttonProps {
   done: boolean;

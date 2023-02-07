@@ -1,8 +1,10 @@
-import { Container, Stack } from "@mui/material";
 import { useContext } from "react";
+import { Container, Stack } from "@mui/material";
+
 import { TasksContext } from "../../TasksContext";
 import { CardTask } from "../CardTasks";
 import { TextAlternative } from "../TextAlternative";
+
 import { BoxList } from "./styled";
 
 export function Dashboard() {
