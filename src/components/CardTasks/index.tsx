@@ -1,9 +1,5 @@
 import { useContext, useState } from "react";
-import {
-  Accordion,
-  AccordionSummary,
-  Checkbox,
-} from "@mui/material";
+import { Accordion, AccordionSummary, Checkbox } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import DeleteIcon from "@mui/icons-material/Delete";
 
@@ -38,6 +34,7 @@ export function CardTask({ task }: Props) {
       <ContainerAccordion>
         <Description done={isChecked}>{task.description}</Description>
         <BoxButtons>
+          {isChecked ? "feito" : "fazer"}
           <Checkbox
             checked={isChecked}
             onChange={(e) => SetIsChecked(e.target.checked)}
