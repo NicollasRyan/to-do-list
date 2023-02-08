@@ -1,7 +1,6 @@
 import { useContext, useState } from "react";
 import {
   Accordion,
-  AccordionDetails,
   AccordionSummary,
   Checkbox,
 } from "@mui/material";
@@ -16,7 +15,6 @@ import {
   TitleCard,
 } from "./styled";
 import { TasksContext, TasksProps } from "../../TasksContext";
-import { TextAlternative } from "../TextAlternative";
 
 type Props = {
   task: TasksProps;

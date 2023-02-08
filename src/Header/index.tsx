@@ -1,6 +1,8 @@
 import { useContext, useState } from "react";
+
 import { TasksContext } from "../TasksContext";
 import { AddTasks } from "./Modal";
+
 import { HeaderPage, Title, ButtonHeader } from "./styled";
 
 export function Header() {
