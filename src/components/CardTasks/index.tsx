@@ -34,7 +34,7 @@ export function CardTask({ task }: Props) {
       <ContainerAccordion>
         <Description done={isChecked}>{task.description}</Description>
         <BoxButtons>
-          {isChecked ? "feito" : "fazer"}
+          {isChecked ? "Feito" : "Fazer"}
           <Checkbox
             checked={isChecked}
             onChange={(e) => SetIsChecked(e.target.checked)}

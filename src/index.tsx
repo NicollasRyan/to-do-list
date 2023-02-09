@@ -16,14 +16,14 @@ createServer({
       tasks: [
         {
           id: 1,
-          tasks: "compras",
-          description: "muitas compras4",
+          tasks: "Supermercado",
+          description: "Arroz, feijão, batata...",
           done: false,
         },
         {
           id: 2,
-          tasks: "compras 2",
-          description: "muitas compras 7",
+          tasks: "Ir a academia",
+          description: "Leg Day",
           done: true,
         },
       ],
