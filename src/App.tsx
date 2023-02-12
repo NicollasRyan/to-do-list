@@ -1,12 +1,15 @@
 import { Header } from "./Header";
 import { Dashboard } from "./components/Dashboard";
-import { TasksContext, TasksProvider } from "./TasksContext";
+import { TasksProvider } from "./TasksContext";
+
+import { GlobalStyle } from "./styles/global";
 
 function App() {
   return (
     <TasksProvider>
       <Header />
       <Dashboard />
+      <GlobalStyle />
     </TasksProvider>
   );
 }
