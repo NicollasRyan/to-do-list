@@ -3,7 +3,6 @@ import ReactDOM from "react-dom/client";
 
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { GlobalStyle } from "./styles/global";
 import { createServer, Model } from "miragejs";
 
 createServer({
@@ -51,7 +50,6 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <App />
-    <GlobalStyle />
   </React.StrictMode>
 );
 
