@@ -7,7 +7,7 @@ import {
   Stack,
 } from "@mui/material";
 
-import { TasksContext } from "../../TasksContext";
+import { TasksContext } from "../../components/context/TasksContext";
 
 import { ButtonModal, ContentModal } from "./styled";
 

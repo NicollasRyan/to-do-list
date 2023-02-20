@@ -10,7 +10,7 @@ import {
   Description,
   TitleCard,
 } from "./styled";
-import { TasksContext, TasksProps } from "../../TasksContext";
+import { TasksContext, TasksProps } from "../context/TasksContext";
 
 type Props = {
   task: TasksProps;

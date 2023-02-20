@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Container, Stack } from "@mui/material";
 
-import { TasksContext } from "../../TasksContext";
+import { TasksContext } from "../context/TasksContext";
 import { CardTask } from "../CardTasks";
 import { TextAlternative } from "../TextAlternative";
 

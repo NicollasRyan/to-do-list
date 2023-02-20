@@ -1,6 +1,6 @@
 import { Header } from "./Header";
 import { Dashboard } from "./components/Dashboard";
-import { TasksProvider } from "./TasksContext";
+import { TasksProvider } from "./components/context/TasksContext";
 
 import { GlobalStyle } from "./styles/global";
 
